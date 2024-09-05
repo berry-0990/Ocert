@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Verification</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Body background */
+        body {
+            background-color: #f4f9fc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container for the form */
+        .verification-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 400px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        /* Header styling */
+        h1 {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        /* Form elements styling */
+        select, input[type="file"], button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        /* Button specific styling */
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Adjust the spacing */
+        .spacing {
+            margin-top: 20px;
+        }
+
+        /* Style the file input */
+        input[type="file"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="verification-container">
+        <h1>Document Verification</h1>
+        <form action="/add_document" method="POST" enctype="multipart/form-data">
+            <label for="document_type">Select your Document Type</label>
+            <select name="document_type" id="document_type" required>
+                <option value="" disabled selected>Select your document</option>
+                <option value="Aadhaar card">Aadhaar card</option>
+                <option value="Driving License">Driving License</option>
+                <option value="PAN card">PAN card</option>
+                <option value="ID card">ID card</option>
+                <optgroup label="Marksheet">
+                    <option value="X">X</option>
+                    <option value="XII">XII</option>
+                </optgroup>
+                <option value="Others">Others</option>
+            </select>
+
+            <label for="document">Upload File here</label>
+            <input type="file" name="document" id="document" required>
+
+            <button type="submit">Upload</button>
+        </form>
+
+        <form action="/verify_document" method="POST" enctype="multipart/form-data">
+            <button type="submit" class="spacing">Verify</button>
+        </form>
+    </div>
+</body>
+</html>
